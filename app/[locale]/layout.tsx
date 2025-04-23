@@ -3,8 +3,12 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { noto } from '@/styles/fonts'
 import { I18nProviderClient } from '@/locales/client'
+import localFont from 'next/font/local'
+
+export const Cairo = localFont({
+	src: '../../public/fonts/Cairo.ttf',
+})
 
 export const metadata: Metadata = {
 	title: 'Deco | Interior Design Studio',
@@ -26,7 +30,7 @@ export default async function RootLayout({
 			suppressHydrationWarning
 			dir={locale === 'en' ? 'ltr' : 'rtl'}
 		>
-			<body className={`${noto.className} antialiased`}>
+			<body className={`${Cairo.className} antialiased`}>
 				<ThemeProvider
 					attribute='class'
 					defaultTheme='system'
@@ -34,7 +38,7 @@ export default async function RootLayout({
 					disableTransitionOnChange
 				>
 					<I18nProviderClient locale={locale}>
-						<Header params={params} />
+						<Header />
 						<main className='container mx-auto px-4 min-h-dvh pt-16'>
 							{children}
 						</main>

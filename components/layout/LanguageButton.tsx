@@ -7,7 +7,6 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { notoKufi } from '@/styles/fonts'
 
 
 export default function LanguageButton() {
@@ -20,7 +19,7 @@ export default function LanguageButton() {
 				<Button
 					size={'icon'}
 					variant={'ghost'}
-					className={`${notoKufi.className} capitalize font-bold `}
+					className={` capitalize font-bold `}
 				>
 					{locale}
 				</Button>
@@ -31,7 +30,7 @@ export default function LanguageButton() {
 						size={'icon'}
 						variant={'ghost'}
 						onClick={() => changeLocale('ar')}
-						className={`${notoKufi.className} capitalize font-bold w-full`}
+						className={` capitalize font-bold w-full`}
 					>
 						Ar
 					</Button>
@@ -41,7 +40,7 @@ export default function LanguageButton() {
 						size={'icon'}
 						variant={'ghost'}
 						onClick={() => changeLocale('en')}
-						className={`${notoKufi.className} capitalize font-bold w-full`}
+						className={` capitalize font-bold w-full`}
 					>
 						En
 					</Button>
