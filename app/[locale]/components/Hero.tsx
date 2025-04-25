@@ -3,7 +3,7 @@ import StartProjectBtn from '@/components/shared/StartProjectBtn'
 import { HeroCarouselImages } from '@/constants/home'
 import MainCarousel from '../../../components/shared/MainCarousel'
 
-export default async function HomeHero({
+export default async function Hero({
 	params,
 }: {
 	params: Promise<{ locale: 'en' | 'ar' }>
@@ -12,7 +12,7 @@ export default async function HomeHero({
 	const dict = await getDictionary(locale)
 
 	return (
-		<section>
+		<section className='flex-col'>
 			{/* ---------------------------------- Text ---------------------------------- */}
 			<div className='flex flex-col items-center justify-center gap-4 '>
 				<h1 className='text-center capitalize'>

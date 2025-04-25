@@ -1,6 +1,10 @@
 {
+	"footer": {
+		"p": "Simplicity and elegance are the hallmarks of our designs."
+	},
+
 	"startProjectBtn": {
-		"title": "Start your Project now"
+		"title": "Start your Project now!"
 	},
 
 	"homePage": {
@@ -9,6 +13,41 @@
 			"h2Br": "happiness",
 			"p": "When you want to live in a wonderful atmosphere,",
 			"pBr": "Let us design this atmosphere for you."
+		},
+
+		"boutUs": {
+			"title": "about us",
+			"p1": "We believe in different thinking and that the most important thing for human comfort is to live in a calm and cheerful environment that meets his needs and helps him stay happy and comfortable always.",
+			"p2": "We also believe that beauty and elegance lie in simplicity, harmony, and satisfying the client's taste and desires. We create exquisite interior designs."
+		},
+
+		"ourServices": {
+			"title": "our services",
+			"p": "We create all interior design projects in 3D with precision, quality and realism. We solve all the problems you face in planning your space and design it for you so you can enjoy a comfortable and happy life."
+		},
+
+		"WorkProcesses": {
+			"title": "Work Processes",
+			"Processes": [
+				{
+					"id": "1",
+					"title": "Exploration and planning",
+					"p": "We get to know the place, determine your needs, budget, existing problems, and develop a general vision for solutions.",
+					"icon": "/icons/workProcess/search.svg"
+				},
+				{
+					"id": "2",
+					"title": "Design and development",
+					"p": "We create and refine design concepts using your input, select necessary materials, and estimate costs.",
+					"icon": "/icons/workProcess/brush.svg"
+				},
+				{
+					"id": "3",
+					"title": "Implementation on the ground",
+					"p": "Our qualified team begins implementation according to the specified plan and design, and produces the final appearance as it is in the design and with the highest quality according to the concluded agreement.",
+					"icon": "/icons/workProcess/house-plus.svg"
+				}
+			]
 		}
 	}
 }

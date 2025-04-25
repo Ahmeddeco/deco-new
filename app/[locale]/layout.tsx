@@ -39,10 +39,10 @@ export default async function RootLayout({
 				>
 					<I18nProviderClient locale={locale}>
 						<Header />
-						<main className='container mx-auto px-4 min-h-dvh pt-16'>
+						<main className='container mx-auto  px-4 min-h-dvh pt-16'>
 							{children}
 						</main>
-						<Footer />
+						<Footer params={params} />
 					</I18nProviderClient>
 				</ThemeProvider>
 			</body>

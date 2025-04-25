@@ -1,6 +1,5 @@
 import { getDictionary } from '@/locales/dictionaries'
 import Link from 'next/link'
-import React from 'react'
 import { Button } from '../ui/button'
 
 export default async function StartProjectBtn({

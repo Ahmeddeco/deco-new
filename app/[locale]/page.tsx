@@ -1,5 +1,7 @@
-import HomeAbout from './components/HomeAbout'
-import HomeHero from './components/HomeHero'
+import AboutUs from './components/AboutUs'
+import Hero from './components/Hero'
+import OurServices from './components/OurServices'
+import WorkProcesses from './components/WorkProcesses'
 
 export default async function HomePage({
 	params,
@@ -8,8 +10,10 @@ export default async function HomePage({
 }) {
 	return (
 		<>
-			<HomeHero params={params} />
-			<HomeAbout params={params} />
+			<Hero params={params} />
+			<AboutUs params={params} />
+			<OurServices params={params} />
+			<WorkProcesses params={params} />
 		</>
 	)
 }
