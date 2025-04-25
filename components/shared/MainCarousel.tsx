@@ -10,7 +10,6 @@ import {
 	CarouselPrevious,
 } from '@/components/ui/carousel'
 import Image from 'next/image'
-import Dots from '@/components/shared/Dots'
 
 type HeroCarouselType = {
 	images: {
@@ -26,7 +25,7 @@ export default function MainCarousel({
 }: HeroCarouselType) {
 	return (
 		<Carousel
-			className='lg:max-w-5xl w-full relative pb-12'
+			className='lg:max-w-7xl w-full relative pb-12'
 			plugins={[
 				Autoplay({
 					delay: delay,
@@ -52,18 +51,6 @@ export default function MainCarousel({
 			</CarouselContent>
 			<CarouselPrevious />
 			<CarouselNext />
-
-			{/* ---------------------------------- Dots ---------------------------------- */}
-			<Dots
-				color={'bg-chart-5'}
-				rowNumber={6}
-				className={'-rotate-3 -top-12 left-12'}
-			/>
-			<Dots
-				color={'bg-chart-2'}
-				rowNumber={6}
-				className={'rotate-3 -bottom-12 right-12'}
-			/>
 		</Carousel>
 	)
 }

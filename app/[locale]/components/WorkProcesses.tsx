@@ -17,19 +17,7 @@ export default async function WorkProcesses({
 	const dict = await getDictionary(locale)
 
 	return (
-		<section className='reverse'>
-			{/* ---------------------------------- Image --------------------------------- */}
-			<Card className='w-full lg:w-1/2 aspect-square  relative'>
-				<CardContent className=' w-full'>
-					<Image
-						src={'/images/home/workProcess.webp'}
-						alt={'Work Processes'}
-						fill
-						className='object-cover rounded-2xl'
-					/>
-				</CardContent>
-			</Card>
-
+		<section className=''>
 			{/* ---------------------------------- Text ---------------------------------- */}
 			<div className='w-full lg:w-1/2 flex flex-col gap-8 '>
 				<h2>{dict.homePage.WorkProcesses.title}</h2>
@@ -51,13 +39,25 @@ export default async function WorkProcesses({
 									</div>
 								</AccordionTrigger>
 								<AccordionContent className='px-4'>
-									<p>{p}</p>
+									<p className='text-start'>{p}</p>
 								</AccordionContent>
 							</AccordionItem>
 						</Accordion>
 					</div>
 				))}
 			</div>
+
+			{/* ---------------------------------- Image --------------------------------- */}
+			<Card className='w-full lg:w-1/2 aspect-square  relative'>
+				<CardContent className=' w-full'>
+					<Image
+						src={'/images/home/workProcess.webp'}
+						alt={'Work Processes'}
+						fill
+						className='object-cover rounded-2xl'
+					/>
+				</CardContent>
+			</Card>
 		</section>
 	)
 }

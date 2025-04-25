@@ -12,7 +12,14 @@ export default async function OurServices({
 	const dict = await getDictionary(locale)
 
 	return (
-		<section>
+		<section className='reverse'>
+			{/* ---------------------------------- Text ---------------------------------- */}
+			<div className='w-full lg:w-1/2 flex flex-col gap-8'>
+				<h2>{dict.homePage.ourServices.title}</h2>
+				<p>{dict.homePage.ourServices.p}</p>
+				<StartProjectBtn params={params} />
+			</div>
+
 			{/* ---------------------------------- Image --------------------------------- */}
 			<Card className='w-full lg:w-1/2 p-0'>
 				<CardContent className='relative w-full aspect-square lg:aspect-video'>
@@ -24,13 +31,6 @@ export default async function OurServices({
 					/>
 				</CardContent>
 			</Card>
-
-			{/* ---------------------------------- Text ---------------------------------- */}
-			<div className='w-full lg:w-1/2 flex flex-col gap-8'>
-				<h2>{dict.homePage.ourServices.title}</h2>
-				<p>{dict.homePage.ourServices.p}</p>
-        <StartProjectBtn params={ params } />
-			</div>
 		</section>
 	)
 }

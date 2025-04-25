@@ -144,6 +144,6 @@
 		@apply flex lg:flex-row flex-col items-center justify-center lg:gap-12 gap-4 relative py-8 lg:py-24 text-center lg:text-start mx-auto;
 	}
 	.reverse {
-		@apply lg:flex-row-reverse flex-col-reverse;
+		@apply lg:flex-row-reverse ;
 	}
 }
