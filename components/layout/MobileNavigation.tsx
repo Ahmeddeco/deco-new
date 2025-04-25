@@ -5,10 +5,14 @@ import {
 	SheetTitle,
 	SheetTrigger,
 	SheetClose,
+	SheetFooter,
 } from '@/components/ui/sheet'
 import { Menu } from 'lucide-react'
 import NavigationLinks from './NavigationLinks'
 import { Separator } from '../ui/separator'
+import { Button } from '../ui/button'
+import ThemeButton from '../theme/ThemeButton'
+import LanguageButton from './LanguageButton'
 
 export default function MobileNavigation() {
 	return (
@@ -17,17 +21,22 @@ export default function MobileNavigation() {
 				<SheetTrigger>
 					<Menu />
 				</SheetTrigger>
-				<SheetClose>
-					<SheetContent>
-						<SheetHeader>
-							<SheetTitle>Digital</SheetTitle>
-						</SheetHeader>
+				<SheetContent>
+					<SheetHeader>
+						<SheetTitle>Digital</SheetTitle>
+					</SheetHeader>
+					<Separator />
+					<div className='flex flex-col gap-4 p-8'>
+						<NavigationLinks />
+					</div>
+					<SheetFooter className=''>
 						<Separator />
-						<div className='flex flex-col gap-4 p-8'>
-							<NavigationLinks />
+						<div className='flex items-center justify-between py-4 px-8  '>
+							<ThemeButton />
+							<LanguageButton />
 						</div>
-					</SheetContent>
-				</SheetClose>
+					</SheetFooter>
+				</SheetContent>
 			</Sheet>
 		</aside>
 	)

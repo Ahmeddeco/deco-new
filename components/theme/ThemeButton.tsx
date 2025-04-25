@@ -23,7 +23,7 @@ export default function ThemeButton() {
 					<Moon className='absolute size-8 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align='end'>
+			<DropdownMenuContent className='w-full' align='end'>
 				<DropdownMenuItem onClick={() => setTheme('light')}>
 					Light
 				</DropdownMenuItem>

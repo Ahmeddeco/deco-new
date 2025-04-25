@@ -14,12 +14,11 @@ export default function Header() {
 			<nav className='lg:flex items-center justify-center gap-8 hidden'>
 				<NavigationLinks />
 			</nav>
-
 			{/* ---------------------------- Button Navigation --------------------------- */}
-			<div className='flex items-center justify-center gap-4'>
+			<MobileNavigation />
+			<div className='lg:flex hidden items-center justify-center gap-4'>
 				<LanguageButton />
 				<ThemeButton />
-				<MobileNavigation />
 			</div>
 		</header>
 	)

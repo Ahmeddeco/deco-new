@@ -30,7 +30,7 @@ export default async function WorkProcesses({
 										<div className='size-8  relative'>
 											<Image
 												src={icon}
-												alt={title}
+												alt={'Work Processes'}
 												fill
 												className='object-cover'
 											/>

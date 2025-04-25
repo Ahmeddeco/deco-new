@@ -2,6 +2,8 @@ import { getDictionary } from '@/locales/dictionaries'
 import StartProjectBtn from '@/components/shared/StartProjectBtn'
 import { HeroCarouselImages } from '@/constants/home'
 import MainCarousel from '../../../components/shared/MainCarousel'
+import Image from 'next/image'
+import { Card, CardContent } from '@/components/ui/card'
 
 export default async function Hero({
 	params,
@@ -18,7 +20,7 @@ export default async function Hero({
 				<h1 className='text-center capitalize'>
 					{dict.homePage.homeHero.h2}
 					<br />
-					<span className='text-primary'>{dict.homePage.homeHero.h2Br}</span>
+					<span className='text-chart-3'>{dict.homePage.homeHero.h2Br}</span>
 				</h1>
 				<p className='text-center'>
 					{dict.homePage.homeHero.p}
@@ -28,7 +30,18 @@ export default async function Hero({
 			</div>
 
 			{/* ------------------------------ HeroCarousel ------------------------------ */}
-			<MainCarousel images={HeroCarouselImages} />
+			{/* <MainCarousel images={HeroCarouselImages} /> */}
+			<Card className='w-full max-w-6xl relative aspect-square lg:aspect-video'>
+				<CardContent>
+					<Image
+						src={'/images/home/HeroImage3.webp'}
+						alt={'hero'}
+						fill
+						priority
+						className='rounded-2xl object-cover'
+					/>
+				</CardContent>
+			</Card>
 		</section>
 	)
 }

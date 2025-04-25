@@ -19,7 +19,7 @@ export default function LanguageButton() {
 				<Button
 					size={'icon'}
 					variant={'ghost'}
-					className={` capitalize font-bold `}
+					className={` capitalize font-bold text-2xl`}
 				>
 					{locale}
 				</Button>
