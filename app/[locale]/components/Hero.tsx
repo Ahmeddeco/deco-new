@@ -14,12 +14,11 @@ export default async function Hero({
 	return (
 		<section className='flex-col'>
 			{/* ---------------------------------- Text ---------------------------------- */}
-			<div className='flex flex-col items-center justify-center gap-4 '>
-				<h1 className='text-center capitalize'>
-					{dict.homePage.homeHero.h2}
-					<br />
-					<span className='text-chart-3'>{dict.homePage.homeHero.h2Br}</span>
-				</h1>
+			<div className='flex flex-col items-center justify-center gap-8 '>
+				<h1 className='text-center capitalize'>{dict.homePage.homeHero.h2}</h1>
+				<h2 className='text-chart-3 text-center'>
+					{dict.homePage.homeHero.h2Br}
+				</h2>
 				<p className='text-center'>
 					{dict.homePage.homeHero.p}
 					<br /> {dict.homePage.homeHero.pBr}

@@ -35,7 +35,7 @@ export default async function WorkProcesses({
 												className='object-cover'
 											/>
 										</div>
-										<h6>{title}</h6>
+										<p className="capitalize">{title}</p>
 									</div>
 								</AccordionTrigger>
 								<AccordionContent className='px-4'>
