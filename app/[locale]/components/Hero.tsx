@@ -1,7 +1,5 @@
 import { getDictionary } from '@/locales/dictionaries'
 import StartProjectBtn from '@/components/shared/StartProjectBtn'
-import { HeroCarouselImages } from '@/constants/home'
-import MainCarousel from '../../../components/shared/MainCarousel'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 

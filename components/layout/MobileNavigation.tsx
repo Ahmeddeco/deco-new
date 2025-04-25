@@ -4,13 +4,11 @@ import {
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-	SheetClose,
 	SheetFooter,
 } from '@/components/ui/sheet'
 import { Menu } from 'lucide-react'
 import NavigationLinks from './NavigationLinks'
 import { Separator } from '../ui/separator'
-import { Button } from '../ui/button'
 import ThemeButton from '../theme/ThemeButton'
 import LanguageButton from './LanguageButton'
 
