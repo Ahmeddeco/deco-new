@@ -9,5 +9,5 @@ export default async function ProjectPage({
 	const locale = (await params).locale
 	const dict = await getDictionary(locale)
 
-	return <h1>Welcome to page!</h1>
+	return <h1>{dict.homePage.WorkProcesses.title}{id}</h1>
 }
