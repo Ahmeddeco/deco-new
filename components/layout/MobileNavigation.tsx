@@ -21,7 +21,7 @@ export default function MobileNavigation() {
 				</SheetTrigger>
 				<SheetContent>
 					<SheetHeader>
-						<SheetTitle>Digital</SheetTitle>
+						<SheetTitle className='text-chart-3'>Design</SheetTitle>
 					</SheetHeader>
 					<Separator />
 					<div className='flex flex-col gap-4 p-8'>

@@ -21,6 +21,15 @@ export default async function AboutUs({
 					<p>{dict.homePage.boutUs.p1}</p>
 					<p>{dict.homePage.boutUs.p2}</p>
 				</div>
+				{/* --------------------------------- Status --------------------------------- */}
+				<div className='flex items-center gap-4 '>
+					{dict.homePage.boutUs.status.map(({ title, value }) => (
+						<div className='flex flex-col  gap-0 even:border-x-4 even:border-chart-3 px-8 first:px-0' key={title}>
+							<h4>{value}</h4>
+							<p className='text-chart-3 capitalize'>{title}</p>
+						</div>
+					))}
+				</div>
 				<StartProjectBtn params={params} />
 			</div>
 
