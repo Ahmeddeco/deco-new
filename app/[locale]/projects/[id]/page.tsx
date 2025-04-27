@@ -1,4 +1,5 @@
 import { getDictionary } from '@/locales/dictionaries'
+import AllImages from '../components/AllImages'
 
 export default async function ProjectPage({
 	params,
@@ -8,6 +9,7 @@ export default async function ProjectPage({
 	const id = (await params).id
 	const locale = (await params).locale
 	const dict = await getDictionary(locale)
+	const projectDict = dict.ourWorksPage[parseInt(id) - 1]
 
-	return <h1>{dict.homePage.WorkProcesses.title}{id}</h1>
+	return <AllImages id={id} projectDict={projectDict} />
 }

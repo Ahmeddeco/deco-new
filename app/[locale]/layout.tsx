@@ -5,6 +5,9 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { I18nProviderClient } from '@/locales/client'
 import localFont from 'next/font/local'
+import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
+import { extractRouterConfig } from 'uploadthing/server'
+import { ourFileRouter } from '@/app/api/uploadthing/core'
 
 export const Cairo = localFont({
 	src: '../../public/fonts/Cairo.ttf',
@@ -38,6 +41,7 @@ export default async function RootLayout({
 					disableTransitionOnChange
 				>
 					<I18nProviderClient locale={locale}>
+						<NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
 						<Header />
 						<main className='container mx-auto  px-4 min-h-dvh pt-16'>
 							{children}

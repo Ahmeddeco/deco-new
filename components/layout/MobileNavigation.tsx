@@ -16,8 +16,8 @@ export default function MobileNavigation() {
 	return (
 		<aside className='lg:hidden block'>
 			<Sheet>
-				<SheetTrigger>
-					<Menu />
+				<SheetTrigger className="size-9">
+					<Menu className="size-9"/>
 				</SheetTrigger>
 				<SheetContent>
 					<SheetHeader>

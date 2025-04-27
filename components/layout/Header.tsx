@@ -1,3 +1,4 @@
+import UserButton from '../auth/UserButton'
 import ThemeButton from '../theme/ThemeButton'
 import LanguageButton from './LanguageButton'
 import Logo from './Logo'
@@ -15,10 +16,14 @@ export default function Header() {
 				<NavigationLinks />
 			</nav>
 			{/* ---------------------------- Button Navigation --------------------------- */}
-			<MobileNavigation />
+			<div className='flex lg:hidden items-start justify-center gap-4'>
+				<UserButton />
+				<MobileNavigation />
+			</div>
 			<div className='lg:flex hidden items-center justify-center gap-4'>
 				<LanguageButton />
 				<ThemeButton />
+				<UserButton />
 			</div>
 		</header>
 	)
