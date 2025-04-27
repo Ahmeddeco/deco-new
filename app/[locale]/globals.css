@@ -143,7 +143,7 @@
 		@apply text-lg lg:text-xl lg:font-normal font-light text-center lg:text-start capitalize;
 	}
 	p {
-		@apply lg:text-balance text-pretty text-xl lg:text-2xl lg:font-normal font-light text-muted-foreground text-center lg:text-start;
+		@apply  text-balance text-xl lg:text-2xl lg:font-normal font-light text-muted-foreground text-center lg:text-start;
 	}
 	section {
 		@apply flex lg:flex-row flex-col items-center justify-center lg:gap-12 gap-4 relative py-8 lg:py-24 text-center lg:text-start mx-auto;

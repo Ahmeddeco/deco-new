@@ -41,25 +41,65 @@ enum Style {
 model Project {
   id String @id @default(cuid())
 
-  title String ///@zod.string.min(3).max(60)
-  city  String ///@zod.string.max(60)
-  country String ///@zod.string.max(60)
+  title       String ///@zod.string.min(3).max(60)
+  city        String ///@zod.string.max(60)
+  country     String ///@zod.string.max(60)
   description String ///@zod.string.min(60).max(255)
-  image     String[]
-  style     Style
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  image       String[]
+  style       Style
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   client   Client @relation(fields: [clientId], references: [id])
   clientId String
 }
 
 model Client {
-  id        String  @id @default(cuid())
-  firstName String ///@zod.string.min(3).max(60)
-  lastName  String? ///@zod.string.min(3).max(60)
-  phone     String  @unique ///@zod.string.min(7).max(14)
-  email     String  @unique
+  id          String   @id @default(cuid())
+  firstName   String ///@zod.string.min(3).max(60)
+  lastName    String? ///@zod.string.min(3).max(60)
+  description String? ///@zod.string.min(60).max(255)
+  phone       String   @unique ///@zod.string.min(7).max(14)
+  email       String   @unique ///@zod.string.email()
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   Project Project[]
+}
+
+model Admin {
+  id          String   @id @default(cuid())
+  firstName   String ///@zod.string.min(3).max(60)
+  lastName    String? ///@zod.string.min(3).max(60)
+  description String? ///@zod.string.min(60).max(255)
+  phone       String   @unique ///@zod.string.min(7).max(14)
+  email       String   @unique ///@zod.string.email()
+  role        Role
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Role {
+  admin
+  superAdmin
+}
+
+model Article {
+  id            String     @id @default(cuid())
+  title         String ///@zod.string.min(3).max(60)
+  mainParagraph String ///@zod.string.min(60).max(1000)
+  image         String     @unique ///@zod.string.url()
+  subtitles     Subtitle[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Subtitle {
+  id        String @id @default(cuid())
+  title     String ///@zod.string.min(3).max(60)
+  paragraph String ///@zod.string.min(60).max(500)
+  image     String @unique ///@zod.string.url()
+
+  Article   Article @relation(fields: [articleId], references: [id])
+  articleId String
 }

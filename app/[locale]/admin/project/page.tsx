@@ -21,8 +21,9 @@ export default async function ProjectPage() {
 
 	const userDb = await prisma.client.findMany({
 		select: {
-			firstName: true,
 			id: true,
+			firstName: true,
+			lastName: true,
 		},
 	})
 

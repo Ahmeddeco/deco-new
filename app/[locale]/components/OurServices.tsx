@@ -22,7 +22,7 @@ export default async function OurServices({
 
 			{/* ---------------------------------- Image --------------------------------- */}
 			<Card className='w-full lg:w-1/2 p-0'>
-				<CardContent className='relative w-full aspect-square lg:aspect-video'>
+				<CardContent className='relative w-full aspect-square '>
 					<Image
 						src={'/images/home/ourServices.webp'}
 						alt={'Our Services'}

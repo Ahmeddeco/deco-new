@@ -22,11 +22,13 @@ import { UploadDropzone } from '@/utils/uploadthing'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { XIcon } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
 
 type AddProjectFormType = {
 	userDb: {
 		id: string
 		firstName: string
+		lastName: string | null
 	}[]
 }
 
@@ -67,9 +69,9 @@ export default function AddProjectForm(userDb: AddProjectFormType) {
 						<SelectValue placeholder='Client' />
 					</SelectTrigger>
 					<SelectContent>
-						{userDb.userDb.map(({ firstName, id }) => (
+						{userDb.userDb.map(({ firstName, id, lastName }) => (
 							<SelectItem value={id} key={id}>
-								{firstName}
+								{`${firstName} ${lastName}`}
 							</SelectItem>
 						))}
 					</SelectContent>
@@ -165,50 +167,53 @@ export default function AddProjectForm(userDb: AddProjectFormType) {
 				<div className='text-destructive'>{fields.style.errors}</div>
 			</div>
 
-			{/* ---------------------------------- Image --------------------------------- */}
-			<div className='flex flex-col gap-2'>
-				<Label>Image</Label>
-				<Input
-					type='hidden'
-					value={images}
-					key={fields.image.key}
-					name={fields.image.name}
-					defaultValue={fields.image.initialValue as any}
-				/>
-				{images.length > 0 ? (
-					<div className='flex gap-5'>
-						{images.map((image, index) => (
-							<div className='relative size-32' key={index}>
-								<Image
-									src={image}
-									alt={'product image'}
-									height={96}
-									width={96}
-									className='w-full h-full rounded-lg border object-cover'
-								/>
-								<Button
-									type='button'
-									size={'icon'}
-									className='absolute -top-3 -right-3 size-8'
-									variant={'destructive'}
-									onClick={() => handleDelete(index)}
-								>
-									<XIcon />
-								</Button>
-							</div>
-						))}
-					</div>
-				) : (
-					<UploadDropzone
-						endpoint='imageUploader'
-						onClientUploadComplete={(res) => {
-							setImages(res.map((r) => r.ufsUrl))
-						}}
-						onUploadError={(error: Error) => alert(`ERROR! ${error.message}`)}
+			{/* ---------------------------------- Images --------------------------------- */}
+			<Label>Images</Label>
+			<Card className=''>
+				<CardContent className='flex flex-col gap-2 '>
+					<Input
+						type='hidden'
+						value={images}
+						key={fields.image.key}
+						name={fields.image.name}
+						defaultValue={fields.image.initialValue as any}
 					/>
-				)}
-				<div className='text-destructive'>{fields.image.errors}</div>
-			</div>
+					{images.length > 0 ? (
+						<div className='flex gap-5'>
+							{images.map((image, index) => (
+								<div className='relative size-32' key={index}>
+									<Image
+										src={image}
+										alt={'product image'}
+										height={96}
+										width={96}
+										className='w-full h-full rounded-lg border object-cover'
+									/>
+									<Button
+										type='button'
+										size={'icon'}
+										className='absolute -top-3 -right-3 size-8'
+										variant={'destructive'}
+										onClick={() => handleDelete(index)}
+									>
+										<XIcon />
+									</Button>
+								</div>
+							))}
+						</div>
+					) : (
+						<UploadDropzone
+							endpoint='imageUploader'
+							onClientUploadComplete={(res) => {
+								setImages(res.map((r) => r.ufsUrl))
+							}}
+							onUploadError={(error: Error) => alert(`ERROR! ${error.message}`)}
+							className='ut-button:bg-primary ut-button:text-background ut-button:font-semibold ut-upload-icon:text-primary'
+						/>
+					)}
+					<div className='text-destructive'>{fields.image.errors}</div>
+				</CardContent>
+			</Card>
 
 			{/* ------------------------------ SubmitButton ------------------------------ */}
 			<SubmitButton title={'add new project'} />

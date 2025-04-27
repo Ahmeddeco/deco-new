@@ -19,7 +19,7 @@ export default async function AdminPage() {
 		<Card>
 			<CardContent>
 				<CardHeader>
-					<CardTitle className='capitalize'>add a new project</CardTitle>
+					<CardTitle className='capitalize'>add Admin</CardTitle>
 				</CardHeader>
 			</CardContent>
 		</Card>

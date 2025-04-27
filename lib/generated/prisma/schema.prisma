@@ -55,11 +55,28 @@ model Project {
 }
 
 model Client {
-  id        String  @id @default(cuid())
-  firstName String ///@zod.string.min(3).max(60)
-  lastName  String? ///@zod.string.min(3).max(60)
-  phone     String  @unique ///@zod.string.min(7).max(14)
-  email     String  @unique
+  id          String  @id @default(cuid())
+  firstName   String ///@zod.string.min(3).max(60)
+  lastName    String? ///@zod.string.min(3).max(60)
+  description String? ///@zod.string.min(60).max(255)
+  phone       String  @unique ///@zod.string.min(7).max(14)
+  email       String  @unique ///@zod.string.email()
 
   Project Project[]
+}
+
+model Article {
+  id            String     @id @default(cuid())
+  title         String ///@zod.string.min(3).max(60)
+  mainParagraph String ///@zod.string.min(60).max(1000)
+  subtitles     Subtitle[]
+}
+
+model Subtitle {
+  id        String @id @default(cuid())
+  title     String ///@zod.string.min(3).max(60)
+  paragraph String ///@zod.string.min(60).max(500)
+
+  Article   Article? @relation(fields: [articleId], references: [id])
+  articleId String?
 }

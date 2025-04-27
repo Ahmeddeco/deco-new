@@ -16,14 +16,15 @@ export default async function AboutUs({
 		<section className=''>
 			{/* ---------------------------------- Text ---------------------------------- */}
 			<div className='w-full lg:w-1/2 flex flex-col gap-8'>
-				<h2>{dict.homePage.boutUs.title}</h2>
+				<h2>{dict.homePage.aboutUs.title}</h2>
 				<div className='flex flex-col gap-4 '>
-					<p>{dict.homePage.boutUs.p1}</p>
-					<p>{dict.homePage.boutUs.p2}</p>
+					<p>{dict.homePage.aboutUs.p1}</p>
+					<p>{dict.homePage.aboutUs.p2}</p>
 				</div>
+
 				{/* --------------------------------- Status --------------------------------- */}
 				<div className='flex items-center gap-4 '>
-					{dict.homePage.boutUs.status.map(({ title, value }) => (
+					{dict.homePage.aboutUs.status.map(({ title, value }) => (
 						<div className='flex flex-col  gap-0 even:border-x-4 even:border-chart-3 px-8 first:px-0' key={title}>
 							<h4>{value}</h4>
 							<p className='text-chart-3 capitalize'>{title}</p>
@@ -34,7 +35,7 @@ export default async function AboutUs({
 			</div>
 
 			{/* ---------------------------------- Image --------------------------------- */}
-			<Card className='relative w-full lg:w-1/2 aspect-square lg:aspect-video'>
+			<Card className='relative w-full lg:w-1/2 aspect-square '>
 				<CardContent className='w-full p-0'>
 					<Image
 						src={aboutImage}

@@ -8,8 +8,11 @@ export const ClientSchema = z.object({
   id: z.string(),
   firstName: z.string().min(3).max(60),
   lastName: z.string().min(3).max(60).nullish(),
+  description: z.string().min(60).max(255).nullish(),
   phone: z.string().min(7).max(14),
-  email: z.string(),
+  email: z.string().email(),
+  createdAt: z.date(),
+  updatedAt: z.date(),
 })
 
 export type Client = z.infer<typeof ClientSchema>
