@@ -10,6 +10,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 
 import AddProjectForm from './components/AddProjectForm'
+import { prisma } from '@/lib/prisma'
 
 export default async function ProjectPage() {
 	const session = await auth()
@@ -17,6 +18,13 @@ export default async function ProjectPage() {
 	if (session?.user?.email !== (process.env.ADMIN_EMAIL as string)) {
 		return notFound()
 	}
+
+	const userDb = await prisma.client.findMany({
+		select: {
+			firstName: true,
+			id: true,
+		},
+	})
 
 	return (
 		<Card>
@@ -26,7 +34,7 @@ export default async function ProjectPage() {
 			</CardHeader>
 			<Separator />
 			<CardContent>
-      <AddProjectForm />
+				<AddProjectForm userDb={userDb} />
 			</CardContent>
 		</Card>
 	)

@@ -10,4 +10,9 @@ export const AdminNavLinks = [
     title: 'add article',
     href: '/admin/article'
   },
+  {
+    id: 3,
+    title: 'add client',
+    href: '/admin/client'
+  },
 ]

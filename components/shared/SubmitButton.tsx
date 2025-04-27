@@ -12,7 +12,7 @@ export default function SubmitButton({ title }: SubmitButtonProps) {
 	const status = useFormStatus()
 
 	return (
-		<Button type='submit'>
+		<Button type='submit' size={'wide'}>
 			{status.pending ? <LoaderCircle className='animate-spin' /> : title}
 		</Button>
 	)

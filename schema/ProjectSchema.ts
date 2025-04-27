@@ -8,6 +8,7 @@ export const ProjectSchema = z.object({
   country: z.string().max(60),
   description: z.string().min(60).max(255),
   image: z.string().array(),
+  clientId: z.string(),
 })
 
 export type Project = z.infer<typeof ProjectSchema>
