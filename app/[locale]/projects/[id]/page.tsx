@@ -9,7 +9,7 @@ export default async function ProjectPage({
 	const id = (await params).id
 	const locale = (await params).locale
 	const dict = await getDictionary(locale)
-	const projectDict = dict.ourWorksPage[parseInt(id) - 1]
+	const projectDict = dict.ourWorksPage.ourProjects[parseInt(id) - 1]
 
 	return <AllImages id={id} projectDict={projectDict} />
 }
