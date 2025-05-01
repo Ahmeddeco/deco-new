@@ -1,5 +1,5 @@
 import { getDictionary } from '@/locales/dictionaries'
-import AllImages from '../components/AllImages'
+import AllImages from '../../../../components/pages/projects/AllImages'
 
 export default async function ProjectPage({
 	params,

@@ -1,7 +1,7 @@
-import AboutUs from './components/AboutUs'
-import Hero from './components/Hero'
-import OurServices from './components/OurServices'
-import WorkProcesses from './components/WorkProcesses'
+import AboutUs from '../../components/pages/home/AboutUs'
+import Hero from '../../components/pages/home/Hero'
+import OurServices from '../../components/pages/home/OurServices'
+import WorkProcesses from '../../components/pages/home/WorkProcesses'
 
 export default async function HomePage({
 	params,

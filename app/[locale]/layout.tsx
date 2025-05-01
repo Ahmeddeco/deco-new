@@ -9,6 +9,7 @@ import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
 import { extractRouterConfig } from 'uploadthing/server'
 import { ourFileRouter } from '@/app/api/uploadthing/core'
 import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
 
 export const Cairo = localFont({
 	src: '../../public/fonts/Cairo.ttf',
@@ -29,7 +30,11 @@ export default async function RootLayout({
 }>) {
 	const { locale } = await params
 	return (
-		<ClerkProvider>
+		<ClerkProvider
+			appearance={{
+				baseTheme:dark ,
+			}}
+		>
 			<html
 				lang={locale}
 				suppressHydrationWarning
