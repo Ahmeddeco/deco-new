@@ -2,21 +2,26 @@ export const AdminNavLinks = [
 
   {
     id: 1,
+    title: 'admin',
+    href: '/admin/'
+  },
+  {
+    id: 2,
     title: 'client',
     href: '/admin/client'
   },
   {
-    id: 2,
+    id: 3,
     title: 'project',
     href: '/admin/project'
   },
   {
-    id: 3,
+    id: 4,
     title: 'article',
     href: '/admin/article'
   },
   {
-    id: 4,
+    id: 5,
     title: 'subtitle',
     href: '/admin/article/subtitle'
   },

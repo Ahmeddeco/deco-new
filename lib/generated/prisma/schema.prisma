@@ -1,82 +1,82 @@
-generator zod {
-  provider                         = "zod-prisma-types"
-  output                           = "./generated"
-  useMultipleFiles                 = true
-  writeNullishInModelTypes         = true
-  createModelTypes                 = true // default is true
-  writeBarrelFiles                 = false // default is true
-  createInputTypes                 = false // default is true
-  addInputTypeValidation           = false // default is true
-  addIncludeType                   = false // default is true
-  addSelectType                    = false // default is true
-  validateWhereUniqueInput         = false // default is true
-  createOptionalDefaultValuesTypes = false // default is false
-  createRelationValuesTypes        = false // default is false
-  createPartialTypes               = false // default is false
-  useDefaultValidators             = false // default is true
-  coerceDate                       = false // default is true
-}
-
 generator client {
   provider = "prisma-client-js"
   output   = "../lib/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-enum Style {
-  minimalist
-  contemporary
-  japandy
-  scandinavian
-  glam
-  industrial
-  rustic
-  traditional
+model User {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?         @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  // Optional for WebAuthn support
+  Authenticator Authenticator[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model Project {
-  id String @id @default(cuid())
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
 
-  title       String ///@zod.string.min(3).max(60)
-  city        String ///@zod.string.max(60)
-  country     String ///@zod.string.max(60)
-  description String ///@zod.string.min(60).max(255)
-  image       String[]
-  style       Style
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  client   Client @relation(fields: [clientId], references: [id])
-  clientId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
 }
 
-model Client {
-  id          String  @id @default(cuid())
-  firstName   String ///@zod.string.min(3).max(60)
-  lastName    String? ///@zod.string.min(3).max(60)
-  description String? ///@zod.string.min(60).max(255)
-  phone       String  @unique ///@zod.string.min(7).max(14)
-  email       String  @unique ///@zod.string.email()
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  Project Project[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model Article {
-  id            String     @id @default(cuid())
-  title         String ///@zod.string.min(3).max(60)
-  mainParagraph String ///@zod.string.min(60).max(1000)
-  subtitles     Subtitle[]
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
-model Subtitle {
-  id        String @id @default(cuid())
-  title     String ///@zod.string.min(3).max(60)
-  paragraph String ///@zod.string.min(60).max(500)
+// Optional for WebAuthn support
+model Authenticator {
+  credentialID         String  @id @map("_id")
+  userId               String  @db.ObjectId
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
 
-  Article   Article? @relation(fields: [articleId], references: [id])
-  articleId String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, credentialID])
 }

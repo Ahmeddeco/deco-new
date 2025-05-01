@@ -26,9 +26,9 @@ export default function AllImages({ id, projectDict }: AllImagesProps) {
 				<CardContent className='flex flex-col gap-4'>
 					<h2>{projectDict.title}</h2>
 					<p>{projectDict.paragraph}</p>
-
-					{/* ------------------------------- ImageThumbs ------------------------------ */}
 				</CardContent>
+
+				{/* ------------------------------- ImageThumbs ------------------------------ */}
 				<Card className='mx-8'>
 					<CardContent className='grid items-center justify-center gap-4 grid-cols-4 relative '>
 						<div
@@ -48,14 +48,14 @@ export default function AllImages({ id, projectDict }: AllImagesProps) {
 			</Card>
 			{/* ---------------------------------- Image --------------------------------- */}
 			<Card className='w-full lg:w-2/3 h-full p-0 '>
-			<CardContent className='relative w-full h-full'>
-			<Image
-								src={'/images/home/about.webp'}
-								alt={'dsf'}
-								fill
-								className='rounded-xl object-cover'
-							/>
-			</CardContent>
+				<CardContent className='relative w-full h-full'>
+					<Image
+						src={'/images/home/about.webp'}
+						alt={'dsf'}
+						fill
+						className='rounded-xl object-cover'
+					/>
+				</CardContent>
 			</Card>
 		</div>
 	)

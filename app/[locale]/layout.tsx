@@ -8,6 +8,7 @@ import localFont from 'next/font/local'
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin'
 import { extractRouterConfig } from 'uploadthing/server'
 import { ourFileRouter } from '@/app/api/uploadthing/core'
+import { ClerkProvider } from '@clerk/nextjs'
 
 export const Cairo = localFont({
 	src: '../../public/fonts/Cairo.ttf',
@@ -28,28 +29,32 @@ export default async function RootLayout({
 }>) {
 	const { locale } = await params
 	return (
-		<html
-			lang={locale}
-			suppressHydrationWarning
-			dir={locale === 'en' ? 'ltr' : 'rtl'}
-		>
-			<body className={`${Cairo.className} antialiased`}>
-				<ThemeProvider
-					attribute='class'
-					defaultTheme='system'
-					enableSystem
-					disableTransitionOnChange
-				>
-					<I18nProviderClient locale={locale}>
-						<NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-						<Header />
-						<main className='container mx-auto  px-4 min-h-dvh pt-16'>
-							{children}
-						</main>
-						<Footer params={params} />
-					</I18nProviderClient>
-				</ThemeProvider>
-			</body>
-		</html>
+		<ClerkProvider>
+			<html
+				lang={locale}
+				suppressHydrationWarning
+				dir={locale === 'en' ? 'ltr' : 'rtl'}
+			>
+				<body className={`${Cairo.className} antialiased`}>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+						disableTransitionOnChange
+					>
+						<I18nProviderClient locale={locale}>
+							<NextSSRPlugin
+								routerConfig={extractRouterConfig(ourFileRouter)}
+							/>
+							<Header />
+							<main className='container mx-auto  px-4 min-h-dvh pt-16'>
+								{children}
+							</main>
+							<Footer params={params} />
+						</I18nProviderClient>
+					</ThemeProvider>
+				</body>
+			</html>
+		</ClerkProvider>
 	)
 }

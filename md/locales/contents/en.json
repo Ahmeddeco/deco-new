@@ -1,0 +1,113 @@
+{
+	"footer": {
+		"p": "Simplicity and elegance are the hallmarks of our designs."
+	},
+
+	"startProjectBtn": {
+		"title": "Start your Project now!"
+	},
+
+	"seeFullProject": {
+		"title": "see full project"
+	},
+
+	"homePage": {
+		"homeHero": {
+			"h2": "Good design equal ",
+			"h2Br": "happiness",
+			"p": "When you want to live in a wonderful atmosphere,",
+			"pBr": "Let us design this atmosphere for you."
+		},
+
+		"aboutUs": {
+			"title": "about us",
+			"p1": "We believe in different thinking and that the most important thing for human comfort is to live in a calm and cheerful environment that meets his needs and helps him stay happy and comfortable always.",
+			"p2": "We also believe that beauty and elegance lie in simplicity , harmony , and satisfying the client's taste and desires. We create exquisite interior designs.",
+			"status": [
+				{
+					"value": "2.1 k",
+					"title": "followers"
+				},
+				{
+					"value": "15 +",
+					"title": "cities"
+				},
+				{
+					"value": "25 +",
+					"title": "projects"
+				}
+			]
+		},
+
+		"ourServices": {
+			"title": "our services",
+			"p": "We create all interior design projects in 3D with precision, quality and realism. We solve all the problems you face in planning your space and design it for you so you can enjoy a comfortable and happy life."
+		},
+
+		"WorkProcesses": {
+			"title": "Work Processes",
+			"Processes": [
+				{
+					"id": "1",
+					"title": "Exploration and planning",
+					"p": "We get to know the place, determine your needs, budget, existing problems, and develop a general vision for solutions.",
+					"icon": "/icons/workProcess/search.svg"
+				},
+				{
+					"id": "2",
+					"title": "Design and development",
+					"p": "We create and refine design concepts using your input, select necessary materials, and estimate costs.",
+					"icon": "/icons/workProcess/brush.svg"
+				},
+				{
+					"id": "3",
+					"title": "Implementation on the ground",
+					"p": "Our qualified team begins implementation according to the specified plan and design, and produces the final appearance as it is in the design and with the highest quality according to the concluded agreement.",
+					"icon": "/icons/workProcess/house-plus.svg"
+				}
+			]
+		}
+	},
+
+	"ourWorksPage": {
+		"title": "our projects",
+		"p": "We hope that our work will satisfy you.",
+		"ourProjects": [
+			{
+				"id": 1,
+				"title": "Japanidi design",
+				"location": "New Cairo - Egypt",
+				"paragraph": "The Japanese design is characterized by simplicity and the use of earthy colors with a slight touch of warm colors, the simple use of natural wood, and perfect finishing.",
+				"pic": "/images/our works/japanidi/japanidi 6.webp"
+			},
+			{
+				"id": 2,
+				"title": "Glam apartment",
+				"location": "Sadat City - Egypt",
+				"paragraph": "This style is characterized by the use of neutral colors such as light beige with touches of wood stained in a pure brown color, and the attention to good finishing, high-quality materials, and clear, straight lines.",
+				"pic": "/images/our works/Glam living/Glam living 1.webp"
+			},
+			{
+				"id": 3,
+				"title": "Studio by the sea",
+				"location": "Calais - France",
+				"paragraph": "This place was designed to suit the cold places of Northern Europe, where the light colors reflect the little sunlight, as well as the presence of warm colors to break up the dull colors in the external environment and increase the feeling of warmth, as well as the use of a large mirror to help spread the rays of light and give the feeling of the space being larger.",
+				"pic": "/images/our works/sea studio/sea studio 1.webp"
+			},
+			{
+				"id": 4,
+				"title": "Modern Worm Apartment",
+				"location": "Nasr City - Egypt",
+				"paragraph": "Using the color yellow helps clients feel warm and energetic, and raises morale and creativity. It also stimulates metabolism, but caution must be exercised when using this color, as less saturated shades should be chosen.",
+				"pic": "/images/our works/yellow apartment/yellow apartment4.webp"
+			},
+			{
+				"id": 5,
+				"title": "Modern indigo Apartment",
+				"location": "Saham - Oman",
+				"paragraph": "Using this shade of blue gives a feeling of spaciousness, calmness, and contemplation. Therefore, it is recommended for those who love a calm atmosphere to overcome the general tension in the surrounding environment.",
+				"pic": "/images/our works/blue apartment/blue apartment 1.webp"
+			}
+		]
+	}
+}
