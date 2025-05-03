@@ -21,14 +21,13 @@ export default function MobileNavigation() {
 				</SheetTrigger>
 				<SheetContent>
 					<SheetHeader>
-						<SheetTitle className='text-chart-3'>Design</SheetTitle>
+						<SheetTitle>Design</SheetTitle>
 					</SheetHeader>
 					<Separator />
 					<div className='flex flex-col gap-4 p-8'>
 						<NavigationLinks />
 					</div>
-					<SheetFooter className=''>
-						<Separator />
+					<SheetFooter >
 						<div className='flex items-center justify-between py-4 px-8  '>
 							<ThemeButton />
 							<LanguageButton />

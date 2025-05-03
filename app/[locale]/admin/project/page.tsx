@@ -1,8 +1,5 @@
-import { IsAdmin } from '@/functions/isAdmin'
-import { IsModerator } from '@/functions/isModerator'
+import AdminAddProjectForm from '@/components/admin/AdminAddProjectForm'
 
-export default async function ProjectPage() {
-	await IsModerator()
-
-	return <h1>Welcome to Projectpage!</h1>
+export default function ProjectPage() {
+	return <AdminAddProjectForm />
 }
