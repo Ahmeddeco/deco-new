@@ -1,7 +1,8 @@
-import mongoose from 'mongoose'
+import mongoose, { InferSchemaType, Schema } from 'mongoose'
 
 const projectSchema = new mongoose.Schema(
   {
+    // slug: Schema.Types.UUID,
     title: {
       ar: { type: String, required: true },
       en: { type: String, required: true },
@@ -26,6 +27,10 @@ const projectSchema = new mongoose.Schema(
   }
 )
 
-const Project = mongoose.models.Project || mongoose.model('Project', projectSchema)
+type ProjectType = InferSchemaType<typeof projectSchema>
 
+const Project = mongoose.models.Project || mongoose.model('Project', projectSchema)
+const ProjectType = typeof projectSchema
+
+export type { ProjectType }
 export default Project

@@ -4,7 +4,7 @@ import Project from '@/models/project'
 import Author from '@/models/author'
 import { redirect } from 'next/navigation'
 
-export const AddProjectAction = async (formData: FormData) => {
+export const addArticleAction = async (formData: FormData) => {
   const rawData = Object.fromEntries(formData)
   console.log('rawData:', rawData)
 

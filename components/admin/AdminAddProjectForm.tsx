@@ -1,6 +1,5 @@
 'use client'
 
-import { addProjectToDb } from '@/functions/addProjectAction'
 import Form from 'next/form'
 import { Card, CardContent } from '../ui/card'
 import SubmitButton from '../shared/SubmitButton'
@@ -12,6 +11,7 @@ import { XIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { UploadDropzone } from '@/utils/uploadthing'
+import { AddProjectAction } from '@/functions/addProjectAction'
 
 type userPropsType = {
 	fullName: string
@@ -19,7 +19,7 @@ type userPropsType = {
 	image?: string
 }
 
-export default function AdminAddProjectForm({
+export default function AddProject({
 	email,
 	fullName,
 	image,
@@ -34,7 +34,7 @@ export default function AdminAddProjectForm({
 		<Card>
 			<CardContent>
 				<Form
-					action={addProjectToDb}
+					action={AddProjectAction}
 					className='flex flex-col justify-center items-center gap-8'
 				>
 					<h2 className='w-full h-12 '>Add Project</h2>
