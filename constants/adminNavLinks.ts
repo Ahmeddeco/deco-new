@@ -6,13 +6,13 @@ export const adminNavLinks = [
   },
   {
     id: 2,
-    title: 'project',
-    href: '/admin/project'
+    title: 'projects',
+    href: '/admin/projects'
   },
   {
     id: 3,
-    title: 'article',
-    href: '/admin/article'
+    title: 'articles',
+    href: '/admin/articles'
   },
 
 ]
