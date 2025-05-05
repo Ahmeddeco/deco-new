@@ -1,5 +1,6 @@
-import { getDictionary } from '@/locales/dictionaries'
-import AllImages from '../../../../components/frontend/projects/AllImages'
+import connectDB from '@/lib/db'
+import Project from '@/models/project'
+import AllImages from '@/components/frontend/projects/AllImages'
 
 export default async function ProjectPage({
 	params,
@@ -8,8 +9,17 @@ export default async function ProjectPage({
 }) {
 	const id = (await params).id
 	const locale = (await params).locale
-	const dict = await getDictionary(locale)
-	const projectDict = dict.ourWorksPage.ourProjects[parseInt(id) - 1]
 
-	return <AllImages id={id} projectDict={projectDict} />
+	await connectDB()
+	const data = (await Project.findById(id)) as { images: string[] } | null
+	if (!data) {
+		throw new Error('Project not found')
+	}
+	console.log('data', data)
+
+	return (
+		<section className='pt-44 lg:pt-16'>
+			<AllImages id={id} images={data.images} />
+		</section>
+	)
 }

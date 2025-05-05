@@ -1,57 +1,47 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
 import { useState } from 'react'
 
 type AllImagesProps = {
 	id: string
-	projectDict: {
-		id: number
-		title: string
-		location: string
-		paragraph: string
-		pic: string
-	}
+	images: string[]
 }
 
-export default function AllImages({ id, projectDict }: AllImagesProps) {
-	const [image, setImage] = useState('')
+export default function AllImages({ id, images }: AllImagesProps) {
+	const [image, setImage] = useState(images[0])
 
 	return (
-		<div className='flex lg:flex-row flex-col gap-8 max-h-[860px] h-screen py-8 lg:items-center lg:justify-center'>
-			{/* ---------------------------------- title --------------------------------- */}
-			<Card className='w-full lg:w-1/3 h-full'>
-				<CardContent className='flex flex-col gap-4'>
-					<h2>{projectDict.title}</h2>
-					<p>{projectDict.paragraph}</p>
-				</CardContent>
-
-				{/* ------------------------------- ImageThumbs ------------------------------ */}
-				<Card className='mx-8'>
-					<CardContent className='grid items-center justify-center gap-4 grid-cols-4 relative '>
+		<div className='flex lg:flex-row flex-col-reverse lg:gap-8 gap-4 lg:h-fit max-h-[660px] my-8 lg:items-center lg:justify-center w-full'>
+			{/* ------------------------------- ImageThumbs ------------------------------ */}
+			<Card className='lg:w-2/12 w-full h-full '>
+				<CardContent className='grid items-center justify-center gap-4 lg:grid-cols-2 grid-cols-3 overflow-x-scroll lg:overflow-scroll h-96 lg:h-[700px]'>
+					{images.map((img, i) => (
 						<div
 							className={`${
-								image && 'border border-chart-3'
-							} w-full aspect-square relative cursor-pointer `}
+								image === img && 'border-4 border-foreground'
+							} size-24 relative cursor-pointer rounded-md `}
+							key={i}
+							onClick={() => setImage(img)}
 						>
 							<Image
-								src={'/images/home/about.webp'}
-								alt={'dsf'}
+								src={img}
+								alt={'project'}
 								fill
-								className='rounded-xl object-cover'
+								className='rounded-md object-cover'
 							/>
 						</div>
-					</CardContent>
-				</Card>
+					))}
+				</CardContent>
 			</Card>
+
 			{/* ---------------------------------- Image --------------------------------- */}
-			<Card className='w-full lg:w-2/3 h-full p-0 '>
-				<CardContent className='relative w-full h-full'>
+			<Card className='w-full lg:w-10/12 h-full p-0'>
+				<CardContent className='relative lg:aspect-video aspect-square '>
 					<Image
-						src={'/images/home/about.webp'}
-						alt={'dsf'}
+						src={image}
+						alt={'project'}
 						fill
 						className='rounded-xl object-cover'
 					/>

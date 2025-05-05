@@ -13,7 +13,6 @@ export default async function ProjectsPage({
 	params: Promise<{ locale: 'en' | 'ar' }>
 }) {
 	const locale = (await params).locale
-	console.log('locale', locale)
 	await connectDB()
 	const data = await Project.find().sort({ createdAt: -1 })
 
