@@ -2,8 +2,6 @@
 
 import { adminNavLinks } from '@/constants/adminNavLinks'
 import Link from 'next/link'
-import React from 'react'
-import { Card, CardContent } from '../ui/card'
 import { usePathname } from 'next/navigation'
 
 export default function AdminNavLinks({ locale }: { locale: 'ar' | 'en' }) {

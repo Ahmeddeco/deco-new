@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 type AllImagesProps = {
-	id: string
+	id?: string
 	images: string[]
 }
 
-export default function AllImages({ id, images }: AllImagesProps) {
+export default function AllImages({ images }: AllImagesProps) {
 	const [image, setImage] = useState(images[0])
 
 	return (

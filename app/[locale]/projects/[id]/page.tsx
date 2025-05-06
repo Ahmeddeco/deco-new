@@ -8,7 +8,6 @@ export default async function ProjectPage({
 	params: Promise<{ locale: 'en' | 'ar'; id: string }>
 }) {
 	const id = (await params).id
-	const locale = (await params).locale
 
 	await connectDB()
 	const data = (await Project.findById(id)) as { images: string[] } | null

@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { IsModerator } from '@/functions/isModerator'
 import connectDB from '@/lib/db'
 import { getDictionary } from '@/locales/dictionaries'
 import Project from '@/models/projectModel'
@@ -30,7 +29,7 @@ export default async function ProjectsPage({
 					<p>{dict.ourWorksPage.p}</p>
 				</div>
 				{data.map(
-					({ _id, city, country, createdAt, description, images, title }) => (
+					({ _id, city, country, description, images, title }) => (
 						<Card
 							key={_id}
 							className='flex lg:flex-row lg:odd:flex-row-reverse flex-col items-center justify-center gap-8 w-full p-4 lg:p-12 '

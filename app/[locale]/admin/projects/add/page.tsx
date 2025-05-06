@@ -1,5 +1,5 @@
 import AdminAddProjectForm from '@/components/admin/AdminAddProjectForm'
-import { currentUser, User } from '@clerk/nextjs/server'
+import { currentUser  } from '@clerk/nextjs/server'
 
 export default async function AddProjectPage() {
 	const user = await currentUser()
