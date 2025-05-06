@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator'
 import { IsModerator } from '@/functions/isModerator'
 import connectDB from '@/lib/db'
 import { getDictionary } from '@/locales/dictionaries'
-import Project from '@/models/project'
+import Project from '@/models/projectModel'
 import { checkRole } from '@/utils/roles'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,6 +20,7 @@ export default async function ProjectsPage({
 	const data = await Project.find().sort({ createdAt: -1 })
 
 	const isModerator = await checkRole('moderator')
+	const isAdmin = await checkRole('admin')
 
 	return (
 		<>
@@ -54,23 +55,32 @@ export default async function ProjectsPage({
 									<Button size={'wide'}>{dict.seeFullProject.title}</Button>
 								</Link>
 
-								{isModerator && (
-									<>
-										<Separator />
-										<div className='flex items-center justify-between px-16'>
-											<Link href={`/admin/projects/edit/${_id}`}>
-												<Button variant={'ghost'} size={'icon'} className='text-muted-foreground'>
-													edit
-												</Button>
-											</Link>
-											<Link href={`/admin/projects/delete/${_id}`}>
-												<Button variant={'ghost'} size={'icon'} className='text-destructive'>
-													delete
-												</Button>
-											</Link>
-										</div>
-									</>
-								)}
+								{isModerator ||
+									(isAdmin && (
+										<>
+											<Separator />
+											<div className='flex items-center justify-between px-16'>
+												<Link href={`/admin/projects/edit/${_id}`}>
+													<Button
+														variant={'ghost'}
+														size={'icon'}
+														className='text-muted-foreground'
+													>
+														edit
+													</Button>
+												</Link>
+												<Link href={`/admin/projects/delete/${_id}`}>
+													<Button
+														variant={'ghost'}
+														size={'icon'}
+														className='text-destructive'
+													>
+														delete
+													</Button>
+												</Link>
+											</div>
+										</>
+									))}
 							</div>
 						</Card>
 					)

@@ -4,8 +4,12 @@ export default async function IdPage({
 	params: Promise<{ locale: 'en' | 'ar'; id: string }>
 }) {
 	const locale = (await params).locale
-  const id=(await params).id
-  console.log('id', id)
+	const id = (await params).id
+	console.log('id', id)
 
-	return <h1>Welcome to Editpage! Project No {id}</h1>
+	return (
+		<h1>
+			Welcome to Editpage! Project No <br /> {id}
+		</h1>
+	)
 }

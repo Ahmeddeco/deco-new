@@ -13,7 +13,7 @@ export default async function AdminLayout({
 
 	return (
 		<div className='flex gap-12 mt-12 '>
-			<aside className='hidden lg:block w-2/12 h-dvh'>
+			<aside className='hidden lg:block w-2/12 h-[760px]'>
 				<Card className='h-full'>
 					<CardContent>
 						<AdminNavLinks locale={locale} />

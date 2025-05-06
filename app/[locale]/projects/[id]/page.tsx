@@ -1,5 +1,5 @@
 import connectDB from '@/lib/db'
-import Project from '@/models/project'
+import Project from '@/models/projectModel'
 import AllImages from '@/components/frontend/projects/AllImages'
 
 export default async function ProjectPage({

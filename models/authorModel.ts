@@ -5,6 +5,7 @@ const authorSchema = new mongoose.Schema(
     authorName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     image: { type: String },
+    phone: { type: String },
   },
   {
     timestamps: true, // Automatically adds `createdAt` and `updatedAt` fields

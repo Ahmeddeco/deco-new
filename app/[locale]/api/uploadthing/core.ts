@@ -15,13 +15,35 @@ export const ourFileRouter = {
        * @see https://docs.uploadthing.com/file-routes#route-config
        */
       maxFileSize: "2MB",
-      maxFileCount: 18,
+      maxFileCount: 20,
+    },
+  })
+    .middleware(async ({ req }) => {
+      // Add authentication or other middleware logic here
+      const user =  auth(req);
+
+      if (!user) throw new UploadThingError("Unauthorized");
+
+      return { userId: user.id };
+    })
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("Upload complete for userId:", metadata.userId);
+      console.log("file url", file.ufsUrl);
+    }),
+  oneImageUploader: f({
+    image: {
+      /**
+       * For full list of options and defaults, see the File Route API reference
+       * @see https://docs.uploadthing.com/file-routes#route-config
+       */
+      maxFileSize: "2MB",
+      maxFileCount: 1,
     },
   })
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
       // This code runs on your server before upload
-      const user = await auth(req)
+      const user =  auth(req)
 
       // If you throw, the user will not be able to upload
       if (!user) throw new UploadThingError("Unauthorized")

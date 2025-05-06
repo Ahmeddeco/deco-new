@@ -1,7 +1,7 @@
 'use server'
 import connectDB from '@/lib/db'
-import Project from '@/models/project'
-import Author from '@/models/author'
+import Project from '@/models/projectModel'
+import Author from '@/models/authorModel'
 import { redirect } from 'next/navigation'
 
 export const AddProjectAction = async (formData: FormData) => {

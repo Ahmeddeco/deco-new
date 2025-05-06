@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import connectDB from '@/lib/db'
-import Project from '@/models/project'
+import Project from '@/models/projectModel'
 import { PlusCircle } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,7 +20,7 @@ export default async function ProjectsPage({
 	return (
 		<>
 			<div className=' flex items-center justify-between pb-8'>
-				<h1>add project page</h1>
+				<h1>admin projects page</h1>
 				<Link href={'/admin/projects/add'}>
 					<Button>
 						<PlusCircle className='size-6' />
@@ -34,7 +34,7 @@ export default async function ProjectsPage({
 					<Card key={i} className='hover:scale-105 duration-500 ease-in-out'>
 						<CardContent className=' w-full flex flex-col gap-4'>
 							{/* ---------------------------------- Image --------------------------------- */}
-							<Link href={`/admin/projects/${_id}`}>
+							<Link href={`/projects/${_id}`}>
 								<div className='w-full aspect-square relative mb-4'>
 									<Image
 										src={images[0]}
