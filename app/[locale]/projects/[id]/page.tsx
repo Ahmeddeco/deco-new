@@ -14,7 +14,6 @@ export default async function ProjectPage({
 	if (!data) {
 		throw new Error('Project not found')
 	}
-	console.log('data', data)
 
 	return (
 		<section className='pt-44 lg:pt-16'>

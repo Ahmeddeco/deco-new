@@ -7,15 +7,6 @@ import { redirect } from "next/navigation"
 
 export const addArticleAction = async (formData: FormData) => {
   const rawData = Object.fromEntries(formData)
-  console.log('rawData:', rawData)
-
-  // Find or create the author
-
-
-
-  // Find or create the author
-
-
 
   try {
     await connectDB()

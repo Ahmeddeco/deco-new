@@ -6,7 +6,6 @@ import { redirect } from 'next/navigation'
 
 export const AddProjectAction = async (formData: FormData) => {
   const rawData = Object.fromEntries(formData)
-  console.log('rawData:', rawData)
 
   // Ensure all required fields are present
   const splitedImages = typeof rawData.images === 'string' ? rawData.images.split(',').map((img) => img.trim()) : []
