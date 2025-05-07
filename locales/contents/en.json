@@ -109,5 +109,11 @@
 				"pic": "/images/our works/blue apartment/blue apartment 1.webp"
 			}
 		]
+	},
+
+	"articles": {
+		"title": "our articles",
+		"subTitle": "we believe in the knowledge is a treasure.",
+		"button":"see the full article"
 	}
 }

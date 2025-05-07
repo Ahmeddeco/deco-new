@@ -109,5 +109,11 @@
 				"pic": "/images/our works/blue apartment/blue apartment 1.webp"
 			}
 		]
+	},
+
+	"articles": {
+		"title": "مقالاتنا",
+		"subTitle": "نحن نؤمن بأن المعرفة كنز",
+		"button": "شاهد المقال كاملا"
 	}
 }
