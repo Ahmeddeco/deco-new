@@ -5,5 +5,10 @@ export default async function IdPage({
 }) {
 	const id = (await params).id
 
-	return <h1>Welcome to Delete Page! Project No {id}</h1>
+	return (
+		<h1>
+			Welcome to Article Page!
+			<br /> Article No {id}
+		</h1>
+	)
 }

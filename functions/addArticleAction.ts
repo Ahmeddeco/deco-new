@@ -1,9 +1,9 @@
 'use server'
+import { redirect } from "next/navigation"
 
 import connectDB from "@/lib/db"
 import Article from "@/models/articleModel"
 import Author from "@/models/authorModel"
-import { redirect } from "next/navigation"
 
 export const addArticleAction = async (formData: FormData) => {
   const rawData = Object.fromEntries(formData)
@@ -30,10 +30,12 @@ export const addArticleAction = async (formData: FormData) => {
       author: author._id, // Link the author by ObjectId
 
     })
+    console.log('Data saved correctly in database')
+
 
   } catch (error) {
     console.error('Error creating article:', error)
   }
 
-  redirect('/admin/articles/add')
+  redirect('/admin/articles')
 }

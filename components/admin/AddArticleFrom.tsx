@@ -77,7 +77,7 @@ export default function AddArticleForm({
 		<Card>
 			<CardContent>
 				<Form action={addArticleAction} className='flex flex-col gap-8'>
-					<h2 className='w-full py-8 '>Add Project</h2>
+					<h2 className='w-full py-8 '>Add Article</h2>
 					<Separator />
 
 					{/* ---------------------------------- Title --------------------------------- */}
